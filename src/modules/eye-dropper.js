@@ -1,10 +1,11 @@
+
 import { useEffect, useRef } from "react";
 
-import "./color-pen.css"
+import "./eye-dropper.css"
 
-function ColorPen({ canvas , setColor , painterPenCheckbox}){
+function EyeDropper({ canvas , setColor , painterPenCheckbox}){
     
-    const colorPenRef = useRef(null);
+    const eyeDropperCheckboxRef = useRef(null);
     
     useEffect(()=>{
 
@@ -15,16 +16,16 @@ function ColorPen({ canvas , setColor , painterPenCheckbox}){
         }
 
           
-        let colorPen = colorPenRef.current
+        let eyeDropperCheckbox = eyeDropperCheckboxRef.current
         const whenClicked = (e)=>{
-            if(colorPen.checked){
+            if(eyeDropperCheckbox.checked){
                 let x = e.offsetX
                 let y = e.offsetY
                 let context = canvas.getContext("2d");
                 let imgData = context.getImageData(x , y , 1 , 1).data;
                 if(imgData[3] == 0) imgData = [255 , 255 , 255]
                 setColor(rgbToHex(imgData[0] , imgData[1] , imgData[2]))
-                colorPen.checked = false
+                eyeDropperCheckbox.checked = false
                 painterPenCheckbox.checked = true
             }
         }    
@@ -41,12 +42,12 @@ function ColorPen({ canvas , setColor , painterPenCheckbox}){
 
     return (
     <div>
-      <input type="radio"  ref = {colorPenRef} name="tool-selected" id = "color-pen-input" value="picker-pen" ></input>
-      <label id = "color-pen-input-label" for = "color-pen-input">
-        <img alt="color-pen" />
+      <input type="radio"  ref = {eyeDropperCheckboxRef} name="tool-selected" id = "eye-dropper-input" value="eye-dropper" ></input>
+      <label id = "eye-dropper-input-label" for = "eye-dropper-input">
+        <img alt="eye-dropper" />
       </label>
     </div>
     );
 }
 
-export default ColorPen;
+export default EyeDropper;

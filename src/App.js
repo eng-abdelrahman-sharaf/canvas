@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SketchPicker } from "react-color";
-import ColorPen from "./modules/color-pen.js";
+import EyeDropper from "./modules/eye-dropper.js";
 import Canvas from "./modules/canvas.js"
 import Eraser from "./modules/eraser.js"
 import PainterPen from "./modules/painter-pen.js"
@@ -25,7 +25,7 @@ function App() {
     return (
     <div id="canvas-container">
       <Eraser canvas={canvas}/>
-      <ColorPen context = {context}  setColor={setColor} canvas={canvas} painterPenCheckbox = {painterPenCheckbox}/>
+      <EyeDropper context = {context}  setColor={setColor} canvas={canvas} painterPenCheckbox = {painterPenCheckbox}/>
       <PainterPen lineWidth={lineWidth} canvas={canvas} color={color} setPainterPenCheckbox={setPainterPenCheckbox} />
       <SketchPicker color={color} onChange={handleNewColor} disableAlpha = {true} />
       <Canvas id = "painter-canvas" height="500px" width="700px" setContext={setContext} setCanvas={setCanvas} />

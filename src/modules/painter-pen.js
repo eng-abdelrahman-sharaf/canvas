@@ -6,6 +6,10 @@ function PainterPen({lineWidth , color ,canvas , setPainterPenCheckbox}){
     const painterCheckboxRef = useRef(null);
 
     useEffect(()=>{
+      painterCheckboxRef.current.checked = true
+    } , [])
+
+    useEffect(()=>{
       if(!canvas) return;
       const painterCheckbox = painterCheckboxRef.current;
       setPainterPenCheckbox(painterCheckbox)
