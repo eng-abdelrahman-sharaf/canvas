@@ -3,13 +3,23 @@
 }
 
 body{
-  background: gray;
+  background: rgb(105, 205, 242);
 }
 
 #canvas-container{
+  margin-top: auto;
+  margin-bottom: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
   justify-content: space-around;
   height: 100vh;
+  overflow-y: scroll;
+}
+  
+#canvas-container > *{
+    
+    margin: 20px 0 20px 0;
 }

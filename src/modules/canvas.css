@@ -1,5 +1,12 @@
+#color-pen-canvas{
+    display: none;
+}
 #painter-canvas{
     border: 2px solid white;
     border-radius: 8px;
     background-color: white;
+}
+
+#color-pen-canvas:checked +  #painter-canvas{
+    cursor: url("../../public/icons/colorPen.svg"),auto;
 }

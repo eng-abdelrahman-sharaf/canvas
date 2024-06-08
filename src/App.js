@@ -1,8 +1,9 @@
-
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { SketchPicker } from "react-color";
-import ColorPicker from "./modules/color-picker.js";
+import ColorPen from "./modules/color-pen.js";
 import Canvas from "./modules/canvas.js"
+import Eraser from "./modules/eraser.js"
+import PainterPen from "./modules/painter-pen.js"
 
 import "./App.css"
 
@@ -14,19 +15,20 @@ function App() {
     const [color , setColor] = useState("#000000")
     const [context , setContext] = useState(undefined)        
     const [canvas , setCanvas] = useState(undefined)
-    const [colorPenChecked , setColorPenChecked] = useState(false)
-
-    console.log(`from app : ${colorPenChecked}`);
+    const [lineWidth , setLineWidth] = useState(10)
+    const [painterPenCheckbox , setPainterPenCheckbox] = useState(null)
 
     function handleNewColor(color){
       setColor(color.hex);
     }
 
     return (
-      <div id="canvas-container">
+    <div id="canvas-container">
+      <Eraser canvas={canvas}/>
+      <ColorPen context = {context}  setColor={setColor} canvas={canvas} painterPenCheckbox = {painterPenCheckbox}/>
+      <PainterPen lineWidth={lineWidth} canvas={canvas} color={color} setPainterPenCheckbox={setPainterPenCheckbox} />
       <SketchPicker color={color} onChange={handleNewColor} disableAlpha = {true} />
-      <Canvas lineWidth = "10" color = {color} id = "painter-canvas" height="500px" width="700px"   colorPenChecked = {colorPenChecked} setContext={setContext} setCanvas={setCanvas} />
-      <ColorPicker context = {context}  setColor={setColor} canvas={canvas} setColorPenChecked = {setColorPenChecked} />
+      <Canvas id = "painter-canvas" height="500px" width="700px" setContext={setContext} setCanvas={setCanvas} />
     </div> 
     );
 
