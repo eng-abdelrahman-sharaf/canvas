@@ -3,7 +3,8 @@
 }
 
 body{
-  background: rgb(105, 205, 242);
+  /* background: #2ec4b6 */
+  background: hsl(198, 100%, 55%)
 }
 
 #canvas-container{

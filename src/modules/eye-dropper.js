@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 import "./eye-dropper.css"
 
-function EyeDropper({ canvas , setColor , painterPenCheckbox}){
+function EyeDropper({ canvas , setColor , painterPenCheckbox , eyeDropperCursorCheckbox}){
     
     const eyeDropperCheckboxRef = useRef(null);
     
@@ -17,6 +17,11 @@ function EyeDropper({ canvas , setColor , painterPenCheckbox}){
 
           
         let eyeDropperCheckbox = eyeDropperCheckboxRef.current
+
+        const showEyeDropperCursor = (e)=>{
+          eyeDropperCursorCheckbox.checked = eyeDropperCheckbox.checked
+        }
+
         const whenClicked = (e)=>{
             if(eyeDropperCheckbox.checked){
                 let x = e.offsetX
@@ -27,18 +32,25 @@ function EyeDropper({ canvas , setColor , painterPenCheckbox}){
                 setColor(rgbToHex(imgData[0] , imgData[1] , imgData[2]))
                 eyeDropperCheckbox.checked = false
                 painterPenCheckbox.checked = true
+                eyeDropperCursorCheckbox.checked = false
             }
         }    
 
+        canvas.addEventListener("mouseup" , showEyeDropperCursor )
+        canvas.addEventListener("mousedown" , showEyeDropperCursor)
+        canvas.addEventListener("mousemove" , showEyeDropperCursor)
         canvas.addEventListener("click" , whenClicked);        
         
         return(
             () => {
                 canvas.removeEventListener("click" , whenClicked); 
+                canvas.removeEventListener("mouseup" , showEyeDropperCursor )
+                canvas.removeEventListener("mousedown" , showEyeDropperCursor)
+                canvas.removeEventListener("mousemove" , showEyeDropperCursor)
             }
         )
 
-    } , [canvas , painterPenCheckbox])
+    } , [canvas , painterPenCheckbox , eyeDropperCursorCheckbox])
 
     return (
     <div>

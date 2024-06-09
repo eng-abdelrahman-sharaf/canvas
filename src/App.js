@@ -17,7 +17,7 @@ function App() {
     const [canvas , setCanvas] = useState(undefined)
     const [lineWidth , setLineWidth] = useState(10)
     const [painterPenCheckbox , setPainterPenCheckbox] = useState(null)
-
+    const [eyeDropperCursorCheckbox , setEyeDropperCursorCheckbox] = useState(false)
     function handleNewColor(color){
       setColor(color.hex);
     }
@@ -25,10 +25,10 @@ function App() {
     return (
     <div id="canvas-container">
       <Eraser canvas={canvas}/>
-      <EyeDropper context = {context}  setColor={setColor} canvas={canvas} painterPenCheckbox = {painterPenCheckbox}/>
+      <EyeDropper context = {context}  setColor={setColor} canvas={canvas} painterPenCheckbox = {painterPenCheckbox} eyeDropperCursorCheckbox = {eyeDropperCursorCheckbox}/>
       <PainterPen lineWidth={lineWidth} canvas={canvas} color={color} setPainterPenCheckbox={setPainterPenCheckbox} />
       <SketchPicker color={color} onChange={handleNewColor} disableAlpha = {true} />
-      <Canvas id = "painter-canvas" height="500px" width="700px" setContext={setContext} setCanvas={setCanvas} />
+      <Canvas id = "painter-canvas" height="500px" width="700px" setContext={setContext} setCanvas={setCanvas} setEyeDropperCursorCheckbox = {setEyeDropperCursorCheckbox} />
     </div> 
     );
 

@@ -7,6 +7,15 @@
     background-color: white;
 }
 
-#color-pen-canvas:checked +  #painter-canvas{
+/* #color-pen-canvas:checked +  #painter-canvas{
+    cursor: url("../../public/icons/colorPen.svg"),auto;
+
+} */
+
+#eyeDropperCursorCheckbox{
+    display: none;
+}
+
+#eyeDropperCursorCheckbox:checked + canvas{
     cursor: url("../../public/icons/colorPen.svg"),auto;
 }

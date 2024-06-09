@@ -62,6 +62,12 @@ function PainterPen({lineWidth , color ,canvas , setPainterPenCheckbox}){
     <div>
         <input type="radio"  id="painter-pen-checkbox" name="tool-selected" value="painter-pen" ref={painterCheckboxRef}></input>
         <label htmlFor="painter-pen-checkbox" id="painter-pen-checkbox-label">
+            <div id = "trans-boundaries">
+              <div class ="top-left"></div>
+              <div class ="top-right"></div>
+              <div class ="bottom-left"></div>
+              <div class ="bottom-right"></div>
+            </div>
             <img alt="painter-pen"/>
         </label>
     </div>
