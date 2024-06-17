@@ -4,15 +4,16 @@
 
 #color-picker-checkbox-label{
     display: block;
-    border: 1px solid;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.25;
+    border-radius: 50%;
+    border: 3px solid white;
 }
 
-#color-picker-container{
+/* #color-picker-container{
     position: relative;
-}
+} */
 
 #custom-color-picker{
     position: absolute;
@@ -20,8 +21,12 @@
     z-index: 9;
 }
 
-#color-picker-checkbox:checked + #custom-color-picker{
+#color-picker-checkbox:checked ~ #color-picker-checkbox-label{
+    opacity: 1;
+}
+
+#color-picker-checkbox:checked ~ #custom-color-picker{
     display: block;
-    top: 60px;
-    left: 60px;
+    top: 3%;
+    right: 3%;
 }

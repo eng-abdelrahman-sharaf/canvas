@@ -1,9 +1,17 @@
 #color-pen-canvas{
     display: none;
 }
+
+#canvas-container{
+	width: 100%;
+	height: 100%;
+	/* align-self: stretch; */
+	/* justify-self: stretch; */
+}
+
 #painter-canvas{
     border: 2px solid black;
-    border-radius: 8px;
+    border-radius: 20px;
     background-color: white;
 }
 
@@ -14,79 +22,5 @@
 
 #eyeDropperCursorCheckbox:checked + canvas{
     cursor: url("../../public/icons/colorPen.svg"),auto;
-}
-
-#canvas-container{
-	position: relative;
-	display: flex;
-}
-
-#canvas-container .trans-boundaries{
-	position: absolute;
-	top:0;
-	left:0;
-	border: 1px solid black;
-}
-
-#canvas-container .trans-boundaries .top-left{
-	width:6px;
-	height:6px;
-	background-color: black;
-    position: absolute;
-    top: 0;
-	left: 0;
-	transform: translate(-50% , -50%);
-}
-
-#canvas-container .trans-boundaries .top-right{
-	width:6px;
-	height:6px;
-	background-color: black;
-    position: absolute;
-    top: 0;
-	right: 0;
-	transform: translate(50% , -50%);
-}
-
-#canvas-container .trans-boundaries .bottom-left{
-	width:6px;
-	height:6px;
-	background-color: black;
-    position: absolute;
-    bottom: 0;
-	left: 0;
-	transform: translate(-50% , 50%);
-}
-
-#canvas-container .trans-boundaries .bottom-right{
-	width:6px;
-	height:6px;
-	background-color: black;
-    position: absolute;
-    bottom: 0;
-	right: 0;
-	transform: translate(50% , 50%);
-}
-
-#canvas-container .trans-boundaries p{
-	padding: 10px 30px;
-}
-
-
-#canvas-container .trans-boundaries input[type="checkbox"]{
-	display: none;
-}
-
-.content-container{
-	visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-
-.content-container *{
-	visibility: visible;
 }
 

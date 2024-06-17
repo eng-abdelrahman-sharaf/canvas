@@ -2,7 +2,7 @@
     display: none;
 }
 
-.tool-checkbox-label{
+/* .tool-checkbox-label{
     display: block;
     width: 60px;
     height: 60px;
@@ -10,13 +10,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-}
+} */
 
-.tool-checkbox-label img{
-    width: 50px;
+.tool-checkbox-label .image{
+    width: 30px;
     height: 30px; 
+    opacity: 0.25;
 }
 
-.tool-checkbox:checked + .tool-checkbox-label{
-    border: solid 4px;
+.tool-checkbox:checked + .tool-checkbox-label .image{
+    opacity: 1.0;
 }
