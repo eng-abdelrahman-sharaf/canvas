@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react"
 import "./eraser.css"
 
-function Eraser({canvas}){
+function Eraser({canvas , drawnList}){
     const eraserCheckboxRef = useRef(null);
+
     useEffect(()=>{
         if(!canvas) return;
 
@@ -12,29 +13,34 @@ function Eraser({canvas}){
         let stroked = false
         let context = canvas.getContext("2d")
 
+        const path = {path : new Path2D() , globalCompositeOperation : "destination-out" }
+
+        const copyPath = (path) => {return {path : path.path , globalCompositeOperation : path.globalCompositeOperation }}
+
         const mousedown = (e) =>{
             if(!eraserCheckbox.checked) return;
-            context.globalCompositeOperation = "destination-out"
+            context.globalCompositeOperation = path.globalCompositeOperation
             isDrawing = true
-            context.beginPath()
-            context.moveTo(e.offsetX  , e.offsetY)
-            context.lineTo(e.offsetX , e.offsetY)
+            path.path.moveTo(e.offsetX  , e.offsetY)
+            path.path.lineTo(e.offsetX , e.offsetY)
         }
         const mousemove = (e) =>{
             if(!eraserCheckbox.checked) return;
             if(isDrawing){
-                context.lineTo(e.offsetX , e.offsetY)
-                context.stroke()
+                path.path.lineTo(e.offsetX , e.offsetY)
+                // context.lineTo(e.offsetX , e.offsetY)
+                context.stroke(path.path)
                 stroked = true
             }
         }
     
         const mouseup = (e) =>{
             if(!eraserCheckbox.checked) return;
-            if(!stroked)context.stroke()
+            if(!stroked)context.stroke(path.path)
+            drawnList.push(copyPath(path))
             stroked = false
             isDrawing = false
-            context.closePath()
+            path.path = new Path2D()
         }
     
         canvas.addEventListener("mousedown" , mousedown);
@@ -48,10 +54,12 @@ function Eraser({canvas}){
         }    
 
     },[canvas])
+
+
     return(
         <div>
-            <input ref={eraserCheckboxRef} type="radio" name="tool-selected" id="eraser-checkbox" value="eraser"></input>
-            <label htmlFor="eraser-checkbox" id="eraser-checkbox-label">
+            <input ref={eraserCheckboxRef} type="radio" className="tool-checkbox" name="tool-selected" id="eraser-checkbox" value="eraser"></input>
+            <label className="tool-checkbox-label" htmlFor="eraser-checkbox" id="eraser-checkbox-label">
                 <img alt="eraser"/>
             </label>
         </div>

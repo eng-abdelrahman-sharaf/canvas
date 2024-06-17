@@ -1,13 +1,22 @@
-*{
-  margin: 0;
-}
-
 body{
+  margin: 0;
   /* background: #2ec4b6 */
-  background: hsl(198, 100%, 55%)
+  /* background: grey */
 }
 
-#canvas-container{
+
+*{box-sizing: border-box;}
+
+#tools-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: grey;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#painter-container{
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
@@ -20,7 +29,6 @@ body{
   overflow-y: scroll;
 }
   
-#canvas-container > *{
-    
+#painter-container > *{
     margin: 20px 0 20px 0;
 }

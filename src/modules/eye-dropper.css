@@ -1,24 +1,4 @@
-#eye-dropper-input{
-    display: none;
-}
-
-
-#eye-dropper-input-label{
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-#eye-dropper-input:checked + #eye-dropper-input-label{
-    background-color: white;
-}
-
 #eye-dropper-input-label img{
-    width: 50px;
-    height: 30px; 
     content: url('data:image/svg+xml,%3C%3Fxml version="1.0" encoding="UTF-8" standalone="no"%3F%3E%3Csvg width="30" height="30" fill="%23000000" viewBox="0 0 96 96" version="1.1" id="svg1" sodipodi:docname="colorPen.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"%3E%3Cdefs id="defs1" /%3E%3Csodipodi:namedview id="namedview1" pagecolor="%23ffffff" bordercolor="%23000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="%23d1d1d1" /%3E%3Ctitle id="title1" /%3E%3Cpath d="m 71.985412,90.007038 a 17.9806,17.9806 0 0 0 12.7968,-5.2969 18.5331,18.5331 0 0 0 0,-25.6054 l -12.8723,-12.8677 4.3172,-4.3179 a 5.9994,5.9994 0 1 0 -8.4844,-8.4844 l -4.3184,4.3184 -29.9819,-29.9883005 a 5.9956,5.9956 0 0 0 -4.2422,-1.7578 h -17.1152 a 5.9966,5.9966 0 0 0 -6,6.0000005 v 17.1152 a 5.9956,5.9956 0 0 0 1.7578,4.2422 l 29.9883,29.9826 -4.3184,4.3184 a 5.9994,5.9994 0 0 0 8.4844,8.4842 l 4.3176,-4.3176 12.8679,12.8723 a 17.9861,17.9861 0 0 0 12.8028,5.3027 z m -53.9,-63.3691 v -8.6309 h 8.6304 l 28.2246,28.2305 -8.625,8.625 z" id="path1" /%3E%3Cpath style="opacity:0.985782;fill:%23ffffff;fill-rule:evenodd;stroke-width:17.466;stroke-opacity:0.397694" d="M 32.250032,40.639725 18.292264,26.679945 v -4.331376 -4.331377 h 4.058308 4.058308 l 14.097587,14.099582 14.097591,14.099581 -4.198132,4.191575 -4.198128,4.191574 z" id="path2" /%3E%3C/svg%3E%0A');
 }
 

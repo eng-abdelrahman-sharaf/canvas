@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
-
+// import ContentProvider from "./contentProvider"
 import "./canvas.css"
+
 
 function Canvas({id , width , height , setContext , setCanvas , setEyeDropperCursorCheckbox}){
     const canvasRef = useRef(null);
     const eyeDropperCursorCheckboxRef = useRef(null)
+    const canvasContainerRef = useRef(null)
+    
     useEffect(()=>{
 
       const canvas = canvasRef.current
@@ -18,8 +21,11 @@ function Canvas({id , width , height , setContext , setCanvas , setEyeDropperCur
     } , [])
     return (
       <>
-        <input  type="checkbox" id="eyeDropperCursorCheckbox" ref={eyeDropperCursorCheckboxRef} />
-        <canvas ref={canvasRef} width={width} height={height} id = {id}></canvas>
+        <div id="canvas-container" ref={canvasContainerRef}>
+          <input  type="checkbox" id="eyeDropperCursorCheckbox" ref={eyeDropperCursorCheckboxRef} />
+          <canvas ref={canvasRef} width={width} height={height} id = {id}></canvas>
+          {/* <ContentProvider draggableElement={<p>Ali is good</p>} /> */}
+        </div>
       </>
     );
   }

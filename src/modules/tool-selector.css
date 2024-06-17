@@ -1,0 +1,22 @@
+.tool-checkbox{
+    display: none;
+}
+
+.tool-checkbox-label{
+    display: block;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.tool-checkbox-label img{
+    width: 50px;
+    height: 30px; 
+}
+
+.tool-checkbox:checked + .tool-checkbox-label{
+    border: solid 4px;
+}

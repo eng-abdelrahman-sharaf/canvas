@@ -54,8 +54,8 @@ function EyeDropper({ canvas , setColor , painterPenCheckbox , eyeDropperCursorC
 
     return (
     <div>
-      <input type="radio"  ref = {eyeDropperCheckboxRef} name="tool-selected" id = "eye-dropper-input" value="eye-dropper" ></input>
-      <label id = "eye-dropper-input-label" for = "eye-dropper-input">
+      <input type="radio" className="tool-checkbox" ref = {eyeDropperCheckboxRef} name="tool-selected" id = "eye-dropper-input" value="eye-dropper" ></input>
+      <label id = "eye-dropper-input-label" className="tool-checkbox-label" htmlFor = "eye-dropper-input">
         <img alt="eye-dropper" />
       </label>
     </div>
