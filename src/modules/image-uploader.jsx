@@ -33,7 +33,6 @@ function ImageUploader({canvas , drawnList}){
                 image.y = Math.round(canvas.height/2 - image.height/2);
                 image.width = Math.round(image.width)
                 image.height = parseInt(image.height)
-                console.log(image);
                 context.globalCompositeOperation = "source-over"
                 context.drawImage(image.image , image.x , image.y , image.width , image.height)
                 drawnList.push(copyImage(image))
@@ -53,9 +52,9 @@ function ImageUploader({canvas , drawnList}){
             }
         }
         
-        function isTouching( mouseX , mouseY , object){
-            if(mouseX < object.x || mouseX > object.width + object.x) return false
-            if (mouseY < object.y || mouseY > object.height + object.y) return false
+        function ispointering( pointerX , pointerY , object){
+            if(pointerX < object.x || pointerX > object.width + object.x) return false
+            if (pointerY < object.y || pointerY > object.height + object.y) return false
             return true
 
         }
@@ -63,7 +62,7 @@ function ImageUploader({canvas , drawnList}){
         let selectedObject = undefined , isImageClicked;
         let dx,dy 
 
-        const mousedown = (e)=>{
+        const pointerdown = (e)=>{
             if(!imageUploaderCheckboxRef.current.checked) {
                 canvas.style.cursor = ""
                 return
@@ -71,7 +70,7 @@ function ImageUploader({canvas , drawnList}){
             let selectedIndex;
             for(let index = 0 ; index < drawnList.length ; index++){
                 const element = drawnList[index];
-                if(element.image && isTouching(e.offsetX, e.offsetY, element)){
+                if(element.image && ispointering(e.offsetX, e.offsetY, element)){
                     selectedObject = element       
                     selectedIndex = index;         
                 }
@@ -84,14 +83,14 @@ function ImageUploader({canvas , drawnList}){
             drawnList.push(selectedObject);
 
             // drawnList.forEach((element)=> {
-            //     if(element.image)if(isTouching(e.offsetX, e.offsetY, element)) selectedObject = element
+            //     if(element.image)if(ispointering(e.offsetX, e.offsetY, element)) selectedObject = element
             // })
             showBorder( selectedObject.x , selectedObject.y , selectedObject.width , selectedObject.height );
             dx = e.offsetX - selectedObject.x
             dy = e.offsetY - selectedObject.y
         }
 
-        const mousemove = (e)=>{
+        const pointermove = (e)=>{
             if(!imageUploaderCheckboxRef.current.checked){
                 canvas.style.cursor = ""
                 return
@@ -100,7 +99,7 @@ function ImageUploader({canvas , drawnList}){
                 let hovering = false
 
                 drawnList.forEach((element)=> {
-                    if(element.image)if(isTouching(e.offsetX, e.offsetY, element)) hovering = true;
+                    if(element.image)if(ispointering(e.offsetX, e.offsetY, element)) hovering = true;
                 });
                 if(hovering) canvas.style.cursor = "move"
                 else canvas.style.cursor = ""
@@ -112,7 +111,7 @@ function ImageUploader({canvas , drawnList}){
             showBorder( selectedObject.x , selectedObject.y , selectedObject.width , selectedObject.height );
         }
 
-        const  mouseup = ()=>{
+        const  pointerup = ()=>{
             if(!imageUploaderCheckboxRef.current.checked) {
                 canvas.style.cursor = ""
                 return
@@ -137,15 +136,15 @@ function ImageUploader({canvas , drawnList}){
 
 
         uploader.addEventListener("change", readURL);
-        canvas.addEventListener("mousedown" , mousedown)
-        canvas.addEventListener("mousemove" , mousemove)
-        canvas.addEventListener("mouseup" , mouseup)
+        canvas.addEventListener("pointerdown" , pointerdown)
+        canvas.addEventListener("pointermove" , pointermove)
+        canvas.addEventListener("pointerup" , pointerup)
         
         return () => {
             uploader.removeEventListener("change" , readURL)
-            canvas.removeEventListener("mousedown" , mousedown)
-            canvas.removeEventListener("mousemove" , mousemove)
-            canvas.removeEventListener("mouseup" , mouseup)   
+            canvas.removeEventListener("pointerdown" , pointerdown)
+            canvas.removeEventListener("pointermove" , pointermove)
+            canvas.removeEventListener("pointerup" , pointerup)   
         }
 
     } , [canvas , drawnList])

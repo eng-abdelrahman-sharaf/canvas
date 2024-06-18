@@ -17,14 +17,14 @@ function Eraser({canvas , drawnList}){
 
         const copyPath = (path) => {return {path : path.path , globalCompositeOperation : path.globalCompositeOperation }}
 
-        const mousedown = (e) =>{
+        const pointerdown = (e) =>{
             if(!eraserCheckbox.checked) return;
             context.globalCompositeOperation = path.globalCompositeOperation
             isDrawing = true
             path.path.moveTo(e.offsetX  , e.offsetY)
             path.path.lineTo(e.offsetX , e.offsetY)
         }
-        const mousemove = (e) =>{
+        const pointermove = (e) =>{
             if(!eraserCheckbox.checked) return;
             if(isDrawing){
                 path.path.lineTo(e.offsetX , e.offsetY)
@@ -34,7 +34,7 @@ function Eraser({canvas , drawnList}){
             }
         }
     
-        const mouseup = (e) =>{
+        const pointerup = (e) =>{
             if(!eraserCheckbox.checked) return;
             if(!stroked)context.stroke(path.path)
             drawnList.push(copyPath(path))
@@ -43,14 +43,14 @@ function Eraser({canvas , drawnList}){
             path.path = new Path2D()
         }
     
-        canvas.addEventListener("mousedown" , mousedown);
-        canvas.addEventListener("mousemove" , mousemove);            
-        canvas.addEventListener("mouseup" , mouseup);
+        canvas.addEventListener("pointerdown" , pointerdown);
+        canvas.addEventListener("pointermove" , pointermove);            
+        canvas.addEventListener("pointerup" , pointerup);
     
         return ()=>{
-            canvas.removeEventListener("mousedown", mousedown);
-            canvas.removeEventListener("mousemove", mousemove);
-            canvas.removeEventListener("mouseup", mouseup);  
+            canvas.removeEventListener("pointerdown", pointerdown);
+            canvas.removeEventListener("pointermove", pointermove);
+            canvas.removeEventListener("pointerup", pointerup);  
         }    
 
     },[canvas])

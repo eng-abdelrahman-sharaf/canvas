@@ -36,17 +36,17 @@ function EyeDropper({ canvas , setColor , painterPenCheckbox , eyeDropperCursorC
             }
         }    
 
-        canvas.addEventListener("mouseup" , showEyeDropperCursor )
-        canvas.addEventListener("mousedown" , showEyeDropperCursor)
-        canvas.addEventListener("mousemove" , showEyeDropperCursor)
+        canvas.addEventListener("pointerup" , showEyeDropperCursor )
+        canvas.addEventListener("pointerdown" , showEyeDropperCursor)
+        canvas.addEventListener("pointermove" , showEyeDropperCursor)
         canvas.addEventListener("click" , whenClicked);        
         
         return(
             () => {
                 canvas.removeEventListener("click" , whenClicked); 
-                canvas.removeEventListener("mouseup" , showEyeDropperCursor )
-                canvas.removeEventListener("mousedown" , showEyeDropperCursor)
-                canvas.removeEventListener("mousemove" , showEyeDropperCursor)
+                canvas.removeEventListener("pointerup" , showEyeDropperCursor )
+                canvas.removeEventListener("pointerdown" , showEyeDropperCursor)
+                canvas.removeEventListener("pointermove" , showEyeDropperCursor)
             }
         )
 

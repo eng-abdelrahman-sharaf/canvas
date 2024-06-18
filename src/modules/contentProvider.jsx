@@ -13,7 +13,7 @@ function ContentProvider({draggableElement}){
 
     
     useEffect(()=>{
-      const mousemove = (e)=>{
+      const pointermove = (e)=>{
         
         if(!textInputCheckboxRef.current.checked) return
         const rect = rectRef.current.getBoundingClientRect()
@@ -22,11 +22,11 @@ function ContentProvider({draggableElement}){
         if(e.clientY - dy > rect.height  || e.clientX - dx  >  rect.width ) return
         setStyle({top:`${e.clientY - dy}px`,left:`${e.clientX - dx}px`})
       }
-      // rectRef.current.addEventListener("drag" , mousemove);
+      // rectRef.current.addEventListener("drag" , pointermove);
       rectRef.current.addEventListener("dragover" , (e)=>{e.preventDefault()});
       rectRef.current.addEventListener("drop" , ()=>{rectRef.current.prepend(draggableElement)});
 
-      return ()=> rectRef.current.removeEventListener("drag" , mousemove)
+      return ()=> rectRef.current.removeEventListener("drag" , pointermove)
     },[])
 
 
