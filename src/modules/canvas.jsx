@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import redraw from "./redraw"
+const {BASE_URL} = import.meta.env
 
 import "./canvas.css"
 
@@ -12,6 +13,8 @@ function Canvas({id, setContext , setCanvas , setEyeDropperCursorCheckbox , draw
     const eyeDropperCursorCheckboxRef = useRef(null)
     const canvasContainerRef = useRef(null)
     
+    console.log(BASE_URL);
+
     if(canvasContainerRef.current){
 
     }
