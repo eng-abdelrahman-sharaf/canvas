@@ -19,6 +19,6 @@
 }
 
 #eyeDropperCursorCheckbox:checked + canvas{
-    cursor: url("/painter-app/icons/colorPen.svg"),auto;
+    cursor: url("/canvas/icons/colorPen.svg"),auto;
 }
 
