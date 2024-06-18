@@ -5,8 +5,6 @@
 #canvas-container{
 	width: 100%;
 	height: 100%;
-	/* align-self: stretch; */
-	/* justify-self: stretch; */
 }
 
 #painter-canvas{
@@ -21,6 +19,6 @@
 }
 
 #eyeDropperCursorCheckbox:checked + canvas{
-    cursor: url("../../public/icons/colorPen.svg"),auto;
+    cursor: url("/painter-app/icons/colorPen.svg"),auto;
 }
 
