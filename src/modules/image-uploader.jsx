@@ -59,7 +59,7 @@ function ImageUploader({canvas , drawnList}){
 
         }
 
-        let selectedObject = undefined , isImageClicked;
+        let selectedObject = undefined;
         let dx,dy 
 
         const pointerdown = (e)=>{
@@ -67,24 +67,14 @@ function ImageUploader({canvas , drawnList}){
                 canvas.style.cursor = ""
                 return
             }
-            let selectedIndex;
-            for(let index = 0 ; index < drawnList.length ; index++){
-                const element = drawnList[index];
-                if(element.image && ispointering(e.offsetX, e.offsetY, element)){
-                    selectedObject = element       
-                    selectedIndex = index;         
-                }
+
+            const lastElement = drawnList[drawnList.length-1]
+            if(lastElement.image && ispointering(e.offsetX, e.offsetY, lastElement)){
+                selectedObject = lastElement
             }
-            redraw(canvas , canvas.getContext("2d") , drawnList);
+
             if(!selectedObject) return
             
-            drawnList.splice(selectedIndex , 1)
-            selectedObject = copyImage(selectedObject)
-            drawnList.push(selectedObject);
-
-            // drawnList.forEach((element)=> {
-            //     if(element.image)if(ispointering(e.offsetX, e.offsetY, element)) selectedObject = element
-            // })
             showBorder( selectedObject.x , selectedObject.y , selectedObject.width , selectedObject.height );
             dx = e.offsetX - selectedObject.x
             dy = e.offsetY - selectedObject.y
@@ -95,16 +85,16 @@ function ImageUploader({canvas , drawnList}){
                 canvas.style.cursor = ""
                 return
             }   
-            if(!selectedObject){
-                let hovering = false
 
-                drawnList.forEach((element)=> {
-                    if(element.image)if(ispointering(e.offsetX, e.offsetY, element)) hovering = true;
-                });
-                if(hovering) canvas.style.cursor = "move"
+            if(!selectedObject){
+                const lastElement = drawnList[drawnList.length-1]
+                if(lastElement.image && ispointering(e.offsetX, e.offsetY, lastElement)){
+                    canvas.style.cursor = "move"
+                }
                 else canvas.style.cursor = ""
                 return
             }
+
             selectedObject.x = e.offsetX - dx
             selectedObject.y = e.offsetY - dy
             redraw(canvas , canvas.getContext("2d") , drawnList);
@@ -116,7 +106,8 @@ function ImageUploader({canvas , drawnList}){
                 canvas.style.cursor = ""
                 return
             }
-            if(!selectedObject) redraw(canvas , canvas.getContext("2d") , drawnList);
+            // to delete the border after moving the image
+            redraw(canvas , canvas.getContext("2d") , drawnList);
             selectedObject = undefined
         }
         

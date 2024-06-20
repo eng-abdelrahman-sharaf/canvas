@@ -13,7 +13,6 @@ function Canvas({id, setContext , setCanvas , setEyeDropperCursorCheckbox , draw
     const eyeDropperCursorCheckboxRef = useRef(null)
     const canvasContainerRef = useRef(null)
     
-    console.log(BASE_URL);
 
     if(canvasContainerRef.current){
 
@@ -27,7 +26,6 @@ function Canvas({id, setContext , setCanvas , setEyeDropperCursorCheckbox , draw
     useEffect(()=>{
       const canvas = canvasRef.current
       const context = canvas.getContext("2d")
-      console.log(canvas , context);
       context.lineCap = "round"
       context.lineJoin = "round"
       redraw(canvasRef.current , canvasRef.current.getContext("2d") , drawnList)
