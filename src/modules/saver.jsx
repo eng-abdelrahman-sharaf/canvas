@@ -8,6 +8,10 @@ function Saver({canvas}){
     useEffect(()=>{
         if(!canvas) return
         const download = function(){
+            const context = canvas.getContext("2d")
+            context.globalCompositeOperation = "destination-over"
+            context.fillStyle = "#FFFFFF"
+            context.fillRect(0 , 0 , canvas.width , canvas.height)
             link.download = 'CANVAS-PAINTING.png';
             link.href = canvas.toDataURL("image/png")
             link.click();
