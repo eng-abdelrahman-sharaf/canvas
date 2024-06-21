@@ -9,11 +9,12 @@
     opacity: 0.25;
     border-radius: 50%;
     border: 3px solid white;
+    
 }
 
-/* #color-picker-container{
+#color-picker-container{
     position: relative;
-} */
+}
 
 #custom-color-picker{
     position: absolute;
@@ -27,6 +28,6 @@
 
 #color-picker-checkbox:checked ~ #custom-color-picker{
     display: block;
-    top: 3%;
-    right: 3%;
+    top: 0;
+    left: 67px;
 }

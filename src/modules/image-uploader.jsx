@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react"
-import redraw from "./redraw"
+import redraw from "./scripts/redraw"
+import {copyImage} from "./scripts/copy"
 
 import "./image-uploader.css"
 
-function ImageUploader({canvas , drawnList}){
+function ImageUploader({canvas , drawnList ,  redos, setIsRedoWorking, setIsUndoWorking}){
     const imageUploaderCheckboxRef = useRef(null)
     const uploaderRef = useRef(null)
     const image = {image: undefined , x : undefined , y :undefined ,  width : undefined , height : undefined};
@@ -13,10 +14,6 @@ function ImageUploader({canvas , drawnList}){
         if(!canvas) return;
         const uploader = uploaderRef.current;
         const context = canvas.getContext("2d")
-
-        const copyImage = (image) => {
-            return {image: image.image ,x : image.x , y :image.y ,  width : image.width , height : image.height }
-        }
 
         const onload = (image) =>{
             return ()=>{
@@ -36,6 +33,10 @@ function ImageUploader({canvas , drawnList}){
                 context.globalCompositeOperation = "source-over"
                 context.drawImage(image.image , image.x , image.y , image.width , image.height)
                 drawnList.push(copyImage(image))
+
+                redos.splice(0 , redos.length);
+                setIsRedoWorking(false);
+                setIsUndoWorking(true);
             }
         }
 

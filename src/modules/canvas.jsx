@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import redraw from "./redraw"
-const {BASE_URL} = import.meta.env
+import redraw from "./scripts/redraw"
 
 import "./canvas.css"
 
@@ -9,16 +8,15 @@ function Canvas({id, setContext , setCanvas , setEyeDropperCursorCheckbox , draw
   const [canvasHeight, setCanvasHeight] = useState(null);
   const [canvasWidth, setCanvasWidth ] = useState(null);
 
-    const canvasRef = useRef(null);
-    const eyeDropperCursorCheckboxRef = useRef(null)
-    const canvasContainerRef = useRef(null)
+  const canvasRef = useRef(null);
+  const eyeDropperCursorCheckboxRef = useRef(null)
+  const canvasContainerRef = useRef(null)
     
 
-    if(canvasContainerRef.current){
-
-    }
 
     const observer = new ResizeObserver(()=>{
+      if(!canvasContainerRef.current)return
+
       setCanvasWidth(canvasContainerRef.current.offsetWidth-10)
       setCanvasHeight(canvasContainerRef.current.offsetHeight-10)
     })

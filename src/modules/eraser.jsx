@@ -1,48 +1,18 @@
 import { useEffect, useRef } from "react"
-import "./eraser.css"
 
-function Eraser({canvas , drawnList}){
+import "./eraser.css"
+import drawFunctions from "./scripts/draw";
+
+function Eraser({canvas , drawnList ,  redos, setIsRedoWorking, setIsUndoWorking}){
     const eraserCheckboxRef = useRef(null);
 
     useEffect(()=>{
         if(!canvas) return;
 
         const eraserCheckbox = eraserCheckboxRef.current;
-
-        let isDrawing = false
-        let stroked = false
-        let context = canvas.getContext("2d")
-
-        const path = {path : new Path2D() , globalCompositeOperation : "destination-out" }
-
-        const copyPath = (path) => {return {path : path.path , globalCompositeOperation : path.globalCompositeOperation }}
-
-        const pointerdown = (e) =>{
-            if(!eraserCheckbox.checked) return;
-            context.globalCompositeOperation = path.globalCompositeOperation
-            isDrawing = true
-            path.path.moveTo(e.offsetX  , e.offsetY)
-            path.path.lineTo(e.offsetX , e.offsetY)
-        }
-        const pointermove = (e) =>{
-            if(!eraserCheckbox.checked) return;
-            if(isDrawing){
-                path.path.lineTo(e.offsetX , e.offsetY)
-                // context.lineTo(e.offsetX , e.offsetY)
-                context.stroke(path.path)
-                stroked = true
-            }
-        }
     
-        const pointerup = (e) =>{
-            if(!eraserCheckbox.checked) return;
-            if(!stroked)context.stroke(path.path)
-            drawnList.push(copyPath(path))
-            stroked = false
-            isDrawing = false
-            path.path = new Path2D()
-        }
-    
+        const {pointerdown , pointermove , pointerup} = drawFunctions({globalCompositeOperation : "destination-out" , canvas , drawerCheckbox : eraserCheckbox , drawnList , redos, setIsRedoWorking, setIsUndoWorking})
+
         canvas.addEventListener("pointerdown" , pointerdown);
         canvas.addEventListener("pointermove" , pointermove);            
         canvas.addEventListener("pointerup" , pointerup);
@@ -66,4 +36,4 @@ function Eraser({canvas , drawnList}){
     )
 }
 
-export default Eraser
+export default Eraser   
