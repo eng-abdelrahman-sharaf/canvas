@@ -2,17 +2,15 @@
     display: none;
 }
 
-#color-picker-checkbox-label{
+#color-picker-checkbox-label .image{
     display: block;
-    width: 30px;
-    height: 30px;
-    opacity: 0.25;
     border-radius: 50%;
     border: 3px solid white;
     
 }
 
 #color-picker-container{
+    touch-action: none;
     position: relative;
 }
 
@@ -22,12 +20,15 @@
     z-index: 9;
 }
 
-#color-picker-checkbox:checked ~ #color-picker-checkbox-label{
-    opacity: 1;
-}
 
 #color-picker-checkbox:checked ~ #custom-color-picker{
     display: block;
     top: 0;
     left: 67px;
+}
+
+@media only screen and (max-width:743px) {
+    #color-picker-checkbox-label .image{
+        border-width: 1px;
+    }
 }

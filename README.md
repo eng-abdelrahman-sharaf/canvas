@@ -1,29 +1,75 @@
 # Painter Web App (Canvas) 🎨
 
-- ## responsive design prototyped using figma
-  
-![responsive design feature](./readme-images/image.png)
+**A feature-rich canvas painting application built with React.**
 
-- ## made functionality using react
+This web app utilizes React for a dynamic user interface and leverages Figma for prototyping a responsive design that adapts seamlessly across various devices.
 
-- ## image uploading  
-  
-![image uploading feature](./readme-images/image-1.png)
+## Key Technologies
 
-- ## image moving  
+- ### React
 
-![image moving feature](./readme-images/image-3.png)
+- ### Vite
 
-- ## canvas saving as png file with transparent background
+- ### Canvas API
 
-![saving canvas painting feature](./readme-images/image-4.png)
+- ### Figma (for Prototyping)
 
-- ## drawing using brush  
+- ### Git & Github
 
-- ## picking color from the canvas using eyedropper
+## Features
 
-- ## selecting color using color-picker-tool
+- ### Image Uploading
 
-![color picker tool](./readme-images/image-6.png)
+Import your own images and add it to canvas.
 
-- ## erasing the canvas (not adding white-color) download it to check
+- ### Image Manipulation
+
+Easily move and position uploaded images.
+
+- ### Brush Painting
+
+- ### Eraser Tool
+
+- ### Color Picking
+
+Select colors directly from the canvas using the eyedropper tool or leverage the color picker for precise control.
+
+- ### Undo/Redo Functionality
+
+Experiment freely with the ability to undo and redo actions.
+
+- ### Canvas Saving as PNG
+
+Save your finished masterpiece as a PNG file.
+
+## Screenshots
+
+- Responsive Design (Figma Prototype)
+
+![prototype](./readme-images/prototype.png)
+
+- Image Uploading
+
+![image-uploading](./readme-images/imageUploading.png)
+
+- Image Moving
+
+![image-moving](./readme-images/imageMoving.png)
+
+- Color Picker Tool
+
+![Color-picker](./readme-images/colorPicker.png)
+
+- Eye Dropper Tool
+
+![eye-dropper](./readme-images/eyeDropper.png)
+
+- Undo/Redo Functionality
+
+![undo-redo](./readme-images/undoRedo.png)
+
+- Canvas Saving as PNG
+
+![canvas-saving](./readme-images/canvasSaving.png)
+
+This Painter Web App effectively showcases my capabilities in building dynamic and interactive web applications using React and modern web technologies.

@@ -29,10 +29,6 @@ function App() {
 
     return (
     <>
-      <div id="motif1" className="motifs"></div>
-      <div id="motif2" className="motifs"></div>
-      <div id="motif3" className="motifs"></div>
-      <header>Canvas</header>
       <div id="painter-container">
         <div id="tools-container">
           <PainterPen lineWidth={lineWidth} canvas={canvas} color={color} setIsRedoWorking={setIsRedoWorking} setIsUndoWorking={setIsUndoWorking} setPainterPenCheckbox={setPainterPenCheckbox} drawnList={drawnList} redos={redos}/>

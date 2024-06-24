@@ -2,22 +2,26 @@
     display: none;
 }
 
-/* .tool-checkbox-label{
-    display: block;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-} */
 
 .tool-checkbox-label .image{
-    width: 30px;
-    height: 30px; 
     opacity: 0.25;
 }
 
+
 .tool-checkbox:checked + .tool-checkbox-label .image{
     opacity: 1.0;
+}
+
+@media only screen and (min-width:744px) {
+    .tool-checkbox-label .image{
+        width: 30px;
+        height: 30px; 
+    }
+}
+
+@media only screen and (max-width:743px) {
+    .tool-checkbox-label .image{
+        width: 15px;
+        height: 15px; 
+    }
 }

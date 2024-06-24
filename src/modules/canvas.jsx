@@ -39,6 +39,7 @@ function Canvas({id, setContext , setCanvas , setEyeDropperCursorCheckbox , draw
     return (
       <>
         <div id="canvas-container" ref={canvasContainerRef}>
+          <header>Canvas</header>
           <input  type="checkbox" id="eyeDropperCursorCheckbox" ref={eyeDropperCursorCheckboxRef} />
           <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} id = {id}></canvas>
         </div>
