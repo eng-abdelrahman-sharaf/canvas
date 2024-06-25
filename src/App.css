@@ -2,6 +2,9 @@
 
 body{
   background-color: #ffffff;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 
@@ -12,11 +15,6 @@ body{
   padding: 0;
 }
 
-/* @property --absolute-x {
-  syntax: "<absolute-size>";
-  inherits: false;
-  initial-value: 50%;
-} */
 
 
 
