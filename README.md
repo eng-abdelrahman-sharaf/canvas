@@ -4,7 +4,7 @@
 
 **A feature-rich canvas painting application built with React.**
 
-This web app utilizes React for a dynamic user interface and leverages Figma for prototyping a responsive design that adapts seamlessly across various devices.
+This web app utilizes React for a dynamic user interface and leverages Figma to prototype a responsive design that adapts seamlessly across various devices.
 
 ## Key Technologies
 
@@ -43,4 +43,4 @@ Image Uploading, Image Manipulation (positioning image), Brush Painting, Eraser 
 
 ![canvas-saving](./readme-images/canvasSaving.png)
 
-This Painter Web App effectively showcases my capabilities in building dynamic and interactive web applications using React and modern web technologies.
+This Painter Web App effectively showcases my capabilities in building dynamic and interactive single page web applications using React and modern web technologies.
