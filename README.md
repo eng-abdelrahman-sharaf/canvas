@@ -1,4 +1,6 @@
 # Painter Web App (Canvas) 🎨
+[![View Demo](https://img.shields.io/badge/View-Demo-blue?style=plastic&logo=google-chrome)](https://eng-abdelrahman-sharaf.github.io/canvas/)
+[![View on GitHub](https://img.shields.io/badge/View-GitHub-black?style=plastic&logo=github)](https://github.com/eng-abdelrahman-sharaf/canvas)
 
 **A feature-rich canvas painting application built with React.**
 
@@ -6,41 +8,10 @@ This web app utilizes React for a dynamic user interface and leverages Figma for
 
 ## Key Technologies
 
-- ### React
-
-- ### Vite
-
-- ### Canvas API
-
-- ### Figma (for Prototyping)
-
-- ### Git & Github
+React, Vite, Canvas API, Figma (for Prototyping), Git & Github
 
 ## Features
-
-- ### Image Uploading
-
-Import your own images and add it to canvas.
-
-- ### Image Manipulation
-
-Easily move and position uploaded images.
-
-- ### Brush Painting
-
-- ### Eraser Tool
-
-- ### Color Picking
-
-Select colors directly from the canvas using the eyedropper tool or leverage the color picker for precise control.
-
-- ### Undo/Redo Functionality
-
-Experiment freely with the ability to undo and redo actions.
-
-- ### Canvas Saving as PNG
-
-Save your finished masterpiece as a PNG file.
+Image Uploading, Image Manipulation (positioning image), Brush Painting, Eraser Tool, Color Picking, Undo/Redo Functionality, Canvas Saving as PNG
 
 ## Screenshots
 
