@@ -1,27 +1,23 @@
-.tool-checkbox{
+.tool-checkbox {
     display: none;
 }
 
-
-.tool-checkbox-label .image{
-    opacity: 0.25;
+.tool-checkbox-label .image {
+    opacity: 0.65;
 }
 
-
-.tool-checkbox:checked + .tool-checkbox-label .image{
-    opacity: 1.0;
+.tool-checkbox:checked + .tool-checkbox-label .image {
+    opacity: 1;
+}
+.tool-checkbox:checked
+    + .tool-checkbox-label
+    .image:not(.undo):not(.redo):not(.picker) {
+    outline: 2px solid white;
+    outline-offset: 8px;
+    border-radius: 2px;
 }
 
-@media only screen and (min-width:744px) {
-    .tool-checkbox-label .image{
-        width: 30px;
-        height: 30px; 
-    }
-}
-
-@media only screen and (max-width:743px) {
-    .tool-checkbox-label .image{
-        width: 15px;
-        height: 15px; 
-    }
+.tool-checkbox-label .image {
+    width: 30px;
+    height: 30px;
 }

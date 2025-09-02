@@ -1,69 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-body{
-  background-color: #ffffff;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+body {
+    background-color: #ffffff;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
-
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-
-
-
-
-#tools-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  border-radius: 40px;
-}
-
-#painter-container{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 20px;
-  padding: 0 26px 20px;
-}
-
-@media only screen and (min-width:744px) {
-
-
-  #tools-container{
-    gap: 32px;
-    width: 64px;
-    height: 515px;
-  }
-  
-  #painter-container{ 
-    min-height: 720px;
-    padding-top: 98px;   
-    
-  }
-}
-
-@media only screen and (max-width:743px) {
-  #tools-container{
+#tools-container {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border-radius: 40px;
     gap: 20px;
-    width: 32px;
-    height: 304px;
-  } 
-
-  #painter-container{ 
-    min-width: 320px;
-    min-height: 568px;
-    padding-top: 58px;   
-  }
+    padding: 20px 32px;
 }
+
+#painter-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding: 0 26px 20px;
+}
+
+/* @media only screen and (min-width: 744px) {
+    #painter-container {
+        min-height: 720px;
+        padding-top: 98px;
+    }
+} */
+/* 
+@media only screen and (max-width: 743px) {
+    #painter-container {
+        min-width: 320px;
+        min-height: 568px;
+        padding-top: 58px;
+    }
+} */

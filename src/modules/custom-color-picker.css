@@ -15,27 +15,19 @@
 }
 
 #custom-color-picker{
-    position: absolute;
+    position: fixed;
     display: none;
     z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%)
 }
 
 
 #color-picker-checkbox:checked ~ #custom-color-picker{
     display: block;
-    top: 0;
 }
 
-@media only screen and (min-width:744px) {
-    #color-picker-checkbox:checked ~ #custom-color-picker{
-        left: calc( 20px + 30px + 17px);
-    }
-}
-@media only screen and (max-width:743px) {
-    #color-picker-checkbox:checked ~ #custom-color-picker{
-        left: calc( 20px + 15px + 8.5px);
-    }
-}
 
 @media only screen and (max-width:743px) {
     #color-picker-checkbox-label .image{
