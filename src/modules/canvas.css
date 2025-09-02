@@ -19,7 +19,6 @@ header {
     position: relative;
     touch-action: none;
     --canvas-border-radius: 20px;
-    overflow: hidden;
 }
 
 /* #painter-canvas::after {
@@ -36,11 +35,12 @@ header {
 
 #painter-canvas {
     position: relative;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 100px;
     border-radius: var(--canvas-border-radius);
     background-color: white;
     flex-grow: 1;
+    box-shadow: 0px 2px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
 #eyeDropperCursorCheckbox {
