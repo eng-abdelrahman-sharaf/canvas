@@ -1,5 +1,8 @@
 # Painter Web App (Canvas) 🎨
-[![View Demo](https://img.shields.io/badge/View-Demo-blue?style=plastic&logo=google-chrome)](https://eng-abdelrahman-sharaf.github.io/canvas/)
+
+<a href="https://eng-abdelrahman-sharaf.github.io/canvas/">
+  <img width="150px" src="https://img.shields.io/badge/View-Demo-blue?style=plastic&logo=google-chrome" alt="view demo"/>
+</a>
 
 **A feature-rich canvas painting application built with React.**
 
